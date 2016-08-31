@@ -4,7 +4,6 @@
 
     <application
         android:allowBackup="true"
-        android:label="save-to-activity"
         android:supportsRtl="true"
         tools:replace="android:label">
 
