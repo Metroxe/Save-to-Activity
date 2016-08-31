@@ -2,12 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="powroznik.christopher.save_to_activity">
 
-    <application
+    <library
         android:allowBackup="true"
         android:label="save-to-activity"
-        android:supportsRtl="true"
         tools:replace="android:label">
 
-    </application>
+    </library>
 
 </manifest>
