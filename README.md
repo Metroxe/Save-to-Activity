@@ -11,8 +11,13 @@ This library is an easy to use series of commands to interact with a hashmap acr
 
 ## Implementation
 
-In the activity you wish to store your variables in, please incorporate these classes...
+In the activity you wish to store your variables in, please incorporate this line and these classes...
 
+#### Start the HashMap
+```sh
+SaveToActivity saveToActivity = new SaveToActivity();
+HashMap<String, String> hashMap = saveToActivity.StartHashMap();
+```
 #### SaveInformation()
 ```sh
 public void SaveInformation(HashMap<String, String> newHashMap) {
