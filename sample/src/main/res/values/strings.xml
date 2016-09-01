@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SavetoActivitySample</string>
+    <string name="activity">Activity</string>
+    <string name="get_value">Get String</string>
+    <string name="open_fragment">Open Fragment</string>
+    <string name="close_fragment">Close Fragment</string>
+    <string name="string">String</string>
+    <string name="key">Key</string>
+    <string name="put">Put</string>
+    <string name="get">Get</string>
+    <string name="explanation">Set the key and string and press put. Doing so will add variables. You can do this in the fragment and the activity, and access them via the activity or fragment</string>
+</resources>
