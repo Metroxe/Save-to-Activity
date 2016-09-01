@@ -6,8 +6,8 @@ This library is an easy to use series of commands to interact with a hashmap acr
 
 ## Supported Data Types
 
-> Strings
-> More Coming...
+- Strings
+- More Coming...
 
 ## Implementation
 
