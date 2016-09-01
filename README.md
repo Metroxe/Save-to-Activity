@@ -1,8 +1,13 @@
-# Save To Activty
+# Save To Activity
 
 This library is an easy to use series of commands to interact with a hashmap across multiple fragments attached to any running activity. This also allows users to pass information between fragments, without a transaction or bundle.
 
 **Please Note this solution for a data structure is very inefficient compared to using bundles, but this library allows users with an over whelming amounts of fragments to manage semi-global variables easily, rather than writing bundle logic for often overly complicated fragment transactions**
+
+## Supported Data Types
+
+> Strings
+> More Coming...
 
 ## Implementation
 
@@ -40,6 +45,7 @@ public HashMap<String, String> LoadInformation() {
 Documentation Coming...
 
 ## License
+```sh
 Copyright 2016 Christopher Powroznik
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -53,3 +59,4 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+```
