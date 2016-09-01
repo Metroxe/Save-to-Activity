@@ -45,7 +45,7 @@ public HashMap<String, String> LoadInformation() {
 Documentation Coming...
 
 ## License
-```sh
+```
 Copyright 2016 Christopher Powroznik
 
 Licensed under the Apache License, Version 2.0 (the "License");
