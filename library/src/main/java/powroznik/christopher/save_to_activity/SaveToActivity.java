@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.util.Log;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class SaveToActivity {
 
@@ -82,7 +84,27 @@ public class SaveToActivity {
      */
     public String getSingleHashString(Activity activity, String key) throws ClassNotFoundException {
         HashMap<String, String> hashMap = receiveHashMap(activity);
-        return hashMap.get(key);
+        String value = hashMap.get(key);
+        if (value == null) {
+            Log.wtf("INVALID KEY", key);
+        }
+        return value;
+    }
+
+    public String[] getStrings(Activity activity, String[] keys) throws ClassNotFoundException {
+        HashMap<String, String> hashMap = receiveHashMap(activity);
+        List<String> temp = new ArrayList<>();
+
+        for (String s : keys) {
+            String value = hashMap.get(s);
+            if (value != null) { //this will skip invalid keys sent
+                temp.add(value);
+            } else {
+                Log.wtf("INVALID KEY", s);
+            }
+        }
+
+        return temp.toArray(new String[temp.size()]);
     }
 
     //Performs same function as the private method, but for debugging reasons the two primary

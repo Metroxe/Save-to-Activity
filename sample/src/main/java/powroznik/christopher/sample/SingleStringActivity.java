@@ -20,11 +20,11 @@ public class SingleStringActivity extends AppCompatActivity {
     SaveToActivity saveToActivity = new SaveToActivity();
     HashMap<String, String> hashMap = saveToActivity.startHashMap();
 
-    public void SaveInformation(HashMap<String, String> newHashMap) {
+    public void saveInformation(HashMap<String, String> newHashMap) {
         hashMap = newHashMap;
     }
 
-    public HashMap<String, String> LoadInformation() {
+    public HashMap<String, String> loadInformation() {
         return hashMap;
     }
 
@@ -85,7 +85,6 @@ public class SingleStringActivity extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.parent, singleStringFragment);
                     fragmentTransaction.commit();
-                    Log.d("TEST", "Run");
                 }
             });
         }

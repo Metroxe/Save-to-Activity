@@ -2,52 +2,42 @@ package powroznik.christopher.sample;
 
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import powroznik.christopher.save_to_activity.SaveToActivity;
 
-public class MultiStringActivity extends AppCompatActivity {
+public class MultiStringFragment extends Fragment {
 
     SaveToActivity saveToActivity = new SaveToActivity();
-    HashMap<String, String> hashMap = saveToActivity.startHashMap();
-
-    public void saveInformation(HashMap<String, String> newHashMap) {
-        hashMap = newHashMap;
-    }
-
-    public HashMap<String, String> loadInformation() {
-        return hashMap;
-    }
 
     List<String> putKeys = new ArrayList<>();
     List<String> putStrings = new ArrayList<>();
     List<String> getKeys = new ArrayList<>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.multi_string_activity);
-        final EditText putKey = (EditText) findViewById(R.id.putKey);
-        final EditText putString = (EditText) findViewById(R.id.putString);
-        final EditText getKey = (EditText) findViewById(R.id.getKey);
-        final TextView getString = (TextView) findViewById(R.id.getValue);
-        final TextView putArray = (TextView) findViewById(R.id.putArray);
-        final TextView getArray = (TextView) findViewById(R.id.getArray);
-        Button putButton = (Button) findViewById(R.id.put);
-        Button getButton = (Button) findViewById(R.id.get);
-        Button openFragment = (Button) findViewById(R.id.openFragment);
-        Button putAddToArray = (Button) findViewById(R.id.putAddToArray);
-        Button getAddToArray = (Button) findViewById(R.id.getAddToArray);
+        final View rootView = inflater.inflate(R.layout.multi_string_fragment, container, false);
+        final EditText putKey = (EditText) rootView.findViewById(R.id.putKey);
+        final EditText putString = (EditText) rootView.findViewById(R.id.putString);
+        final EditText getKey = (EditText) rootView.findViewById(R.id.getKey);
+        final TextView getString = (TextView) rootView.findViewById(R.id.getValue);
+        final TextView putArray = (TextView) rootView.findViewById(R.id.putArray);
+        final TextView getArray = (TextView) rootView.findViewById(R.id.getArray);
+        Button putButton = (Button) rootView.findViewById(R.id.put);
+        Button getButton = (Button) rootView.findViewById(R.id.get);
+        Button closeFragment = (Button) rootView.findViewById(R.id.closeFragment);
+        Button putAddToArray = (Button) rootView.findViewById(R.id.putAddToArray);
+        Button getAddToArray = (Button) rootView.findViewById(R.id.getAddToArray);
 
         //Put add to array
         if (putAddToArray != null && putKey != null && putString != null && putArray != null) {
@@ -87,7 +77,7 @@ public class MultiStringActivity extends AppCompatActivity {
                     String[] keysArr = putKeys.toArray(new String[putKeys.size()]);
                     String[] stringsArr = putStrings.toArray(new String[putStrings.size()]);
                     try {
-                        saveToActivity.putStrings(MultiStringActivity.this, keysArr, stringsArr);
+                        saveToActivity.putStrings(getActivity(), keysArr, stringsArr);
 
                         putKeys.clear();
                         putStrings.clear();
@@ -136,7 +126,7 @@ public class MultiStringActivity extends AppCompatActivity {
                     String[] keysArr = getKeys.toArray(new String[getKeys.size()]);
 
                     try {
-                        String[] result = saveToActivity.getStrings(MultiStringActivity.this, keysArr);
+                        String[] result = saveToActivity.getStrings(getActivity(), keysArr);
 
                         String display = "";
 
@@ -157,20 +147,17 @@ public class MultiStringActivity extends AppCompatActivity {
             });
         }
 
-        //Open Fragment
-        if (openFragment != null) {
-            openFragment.setOnClickListener(new View.OnClickListener() {
+        //Close Fragment
+        if (closeFragment != null) {
+            closeFragment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    MultiStringFragment multiStringFragment = new MultiStringFragment();
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.parent, multiStringFragment);
-                    fragmentTransaction.commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().remove(MultiStringFragment.this).commit();
                 }
             });
         }
 
+        return rootView;
     }
 
 }
