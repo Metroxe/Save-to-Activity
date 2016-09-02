@@ -28,6 +28,7 @@ public void saveInformation(HashMap<String, String> newHashMap) {
 ```sh
 public HashMap<String, String> loadInformation() {
     return hashMap;
+}
 ```
 
 ## Integrate with Gradle
