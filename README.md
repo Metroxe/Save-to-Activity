@@ -44,7 +44,7 @@ public HashMap<String, String> loadInformation() {
 Call from Activity
 ```sh
 	dependencies {
-	        compile 'com.github.metroxe:save-to-activity:c5eab45c6f'
+	        compile 'com.github.Metroxe:Save-to-Activity:v1.0'
 	}
 ```
 ## Methods
