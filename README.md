@@ -16,17 +16,17 @@ In the activity you wish to store your variables in, please incorporate this lin
 #### Start the HashMap
 ```sh
 SaveToActivity saveToActivity = new SaveToActivity();
-HashMap<String, String> hashMap = saveToActivity.StartHashMap();
+HashMap<String, String> hashMap = saveToActivity.startHashMap();
 ```
-#### SaveInformation()
+#### saveInformation()
 ```sh
-public void SaveInformation(HashMap<String, String> newHashMap) {
+public void saveInformation(HashMap<String, String> newHashMap) {
     hashMap = newHashMap;
 }
 ```
-#### LoadInformation()
+#### loadInformation()
 ```sh
-public HashMap<String, String> LoadInformation() {
+public HashMap<String, String> loadInformation() {
     return hashMap;
 ```
 

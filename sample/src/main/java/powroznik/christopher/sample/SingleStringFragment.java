@@ -35,7 +35,7 @@ public class SingleStringFragment extends Fragment {
                     String string = putString.getText().toString();
                     if (!key.isEmpty() && !string.isEmpty()) {
                         try {
-                            saveToActivity.PutSingleString(getActivity(), key, string);
+                            saveToActivity.putSingleString(getActivity(), key, string);
                         } catch (ClassNotFoundException e) {
                             e.printStackTrace();
                         }
@@ -52,7 +52,7 @@ public class SingleStringFragment extends Fragment {
                     String key = getKey.getText().toString();
                     if (!key.isEmpty()) {
                         try {
-                            getString.setText(saveToActivity.GetSingleHashString(getActivity(), key));
+                            getString.setText(saveToActivity.getSingleHashString(getActivity(), key));
                         } catch (ClassNotFoundException e) {
                             e.printStackTrace();
                         }

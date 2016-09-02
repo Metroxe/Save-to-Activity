@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">SavetoActivitySample</string>
-    <string name="activity">Activity</string>
     <string name="get_value">Get String</string>
     <string name="open_fragment">Open Fragment</string>
     <string name="close_fragment">Close Fragment</string>
     <string name="string">String</string>
+    <string name="single_string_example">Single String Example</string>
+    <string name="multi_string_example">Multi String Example</string>
     <string name="key">Key</string>
     <string name="put">Put</string>
     <string name="get">Get</string>

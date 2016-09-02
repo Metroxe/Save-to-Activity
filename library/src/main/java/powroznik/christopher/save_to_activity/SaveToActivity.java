@@ -10,15 +10,15 @@ public class SaveToActivity {
 
     //Starts the Hash Map in the activity
     //Users can skip this if a HashMap is already created
-    public HashMap<String, String> StartHashMap() {
+    public HashMap<String, String> startHashMap() {
         return new HashMap<>();
     }
 
     //Loads the Hashmap privately to all other methods in the Class
-    private static HashMap<String, String> ReceiveHashMap(Activity activity) throws ClassNotFoundException {
+    private static HashMap<String, String> receiveHashMap(Activity activity) throws ClassNotFoundException {
         java.lang.reflect.Method loadInformation;
         try {
-            loadInformation = activity.getClass().getMethod("LoadInformation");
+            loadInformation = activity.getClass().getMethod("loadInformation");
             try {
                 return (HashMap<String, String>) loadInformation.invoke(activity);
 
@@ -33,10 +33,10 @@ public class SaveToActivity {
     }
 
     //Pushes the HashMap Privately Back to the Activity
-    private static void PushHashMap(Activity activity, HashMap<String, String> hashMap) throws ClassNotFoundException {
+    private static void pushHashMap(Activity activity, HashMap<String, String> hashMap) throws ClassNotFoundException {
         java.lang.reflect.Method saveInformation;
         try {
-            saveInformation = activity.getClass().getMethod("SaveInformation", HashMap.class);
+            saveInformation = activity.getClass().getMethod("saveInformation", HashMap.class);
             try {
                 saveInformation.invoke(activity, hashMap);
 
@@ -51,14 +51,14 @@ public class SaveToActivity {
     /**
      * Put Methods
      */
-    public void PutSingleString(Activity activity, String key, String string) throws ClassNotFoundException {
-        HashMap<String, String> hashMap = ReceiveHashMap(activity);
+    public void putSingleString(Activity activity, String key, String string) throws ClassNotFoundException {
+        HashMap<String, String> hashMap = receiveHashMap(activity);
         hashMap.put(key, string);
-        PushHashMap(activity, hashMap);
+        pushHashMap(activity, hashMap);
     }
 
-    public void PutStrings(Activity activity, String[] keys, String[] strings) throws ClassNotFoundException {
-        HashMap<String, String> hashMap = ReceiveHashMap(activity);
+    public void putStrings(Activity activity, String[] keys, String[] strings) throws ClassNotFoundException {
+        HashMap<String, String> hashMap = receiveHashMap(activity);
         if (keys.length == strings.length) {
             Integer length = keys.length;
 
@@ -66,28 +66,28 @@ public class SaveToActivity {
                 hashMap.put(keys[i], strings[i]);
             }
 
-            PushHashMap(activity, hashMap);
+            pushHashMap(activity, hashMap);
         }
     }
 
     //Performs same function as the private method, but for debugging reasons the two primary
     //function methods are kept as private
-    public void ReplaceHashMap(Activity activity,HashMap<String, String> hashMap) throws ClassNotFoundException {
-        PushHashMap(activity, hashMap);
+    public void replaceHashMap(Activity activity, HashMap<String, String> hashMap) throws ClassNotFoundException {
+        pushHashMap(activity, hashMap);
     }
 
 
     /**
      * Get Methods
      */
-    public String GetSingleHashString(Activity activity, String key) throws ClassNotFoundException {
-        HashMap<String, String> hashMap = ReceiveHashMap(activity);
+    public String getSingleHashString(Activity activity, String key) throws ClassNotFoundException {
+        HashMap<String, String> hashMap = receiveHashMap(activity);
         return hashMap.get(key);
     }
 
     //Performs same function as the private method, but for debugging reasons the two primary
     //function methods are kept as private
-    public HashMap<String, String> GetHashMap(Activity activity) throws ClassNotFoundException {
-        return ReceiveHashMap(activity);
+    public HashMap<String, String> getHashMap(Activity activity) throws ClassNotFoundException {
+        return receiveHashMap(activity);
     }
 }
