@@ -1,4 +1,4 @@
-# Save To Activity
+# Save To Activity (Deprecated)
 
 This library is an easy to use series of commands to interact with a hashmap across multiple fragments attached to any running activity. This also allows users to pass information between fragments, without a transaction or bundle.
 
